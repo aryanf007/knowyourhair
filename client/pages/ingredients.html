@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ingredient Decoder | Know Your Hair</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    nav {
+      background: #2c3e50;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a { color: #fff; text-decoration: none; margin-left: 1.5rem; }
+    nav a:hover { color: #f39c12; }
+    .logo { font-size: 1.5rem; font-weight: bold; color: #fff; }
+    .hero { background: #34495e; color: #fff; padding: 3rem 2rem; text-align: center; }
+    .container { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .card { background: #fff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .card.good { border-top: 4px solid #27ae60; }
+    .card.caution { border-top: 4px solid #e74c3c; }
+    .badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.85rem; margin-bottom: 0.8rem; font-weight: bold; }
+    .badge.good { background: #e8f8f5; color: #27ae60; }
+    .badge.caution { background: #fadbd8; color: #e74c3c; }
+    footer { text-align: center; padding: 2rem; background: #2c3e50; color: #fff; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">🌿 Know Your Hair</div>
+    <div>
+      <a href="/index.html">Home</a>
+      <a href="/pages/take-test.html">Take Test</a>
+      <a href="/pages/get-routine.html">Get Routine</a>
+      <a href="/pages/concerns.html">Concerns</a>
+      <a href="/pages/oils.html">Oils</a>
+      <a href="/pages/ingredients.html" style="color: #f39c12;">Ingredients</a>
+      <a href="/pages/about.html">About</a>
+      <a href="#" id="authBtn" onclick="handleAuthClick()">Login</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Hair Product Ingredient Decoder</h1>
+    <p>Understand labels so you can choose safe, nourishing products for your hair type.</p>
+  </section>
+
+  <div class="container">
+    <div class="grid">
+      <!-- Good -->
+      <div class="card good">
+        <span class="badge good">Beneficial</span>
+        <h3>Aloe Vera & Glycerin</h3>
+        <p><strong>Category:</strong> Humectants</p>
+        <p>Draws moisture from the air directly into the hair shaft. Excellent for dry hair and curly textures.</p>
+      </div>
+
+      <!-- Caution -->
+      <div class="card caution">
+        <span class="badge caution">Use with Caution</span>
+        <h3>Sulfates (SLS / SLES)</h3>
+        <p><strong>Category:</strong> Harsh Cleansers</p>
+        <p>Strip hair of natural oils, leading to severe dryness and color fading over time.</p>
+      </div>
+
+      <!-- Good -->
+      <div class="card good">
+        <span class="badge good">Beneficial</span>
+        <h3>Hydrolyzed Keratin / Silk</h3>
+        <p><strong>Category:</strong> Proteins</p>
+        <p>Fills in tiny cuticle gaps in high-porosity or damaged hair to restore structural strength.</p>
+      </div>
+
+      <!-- Caution -->
+      <div class="card caution">
+        <span class="badge caution">Use with Caution</span>
+        <h3>Non-Soluble Silicones</h3>
+        <p><strong>Category:</strong> Coating Agents (Dimethicone)</p>
+        <p>Provides temporary shine but seals out moisture, causing build-up without clarifying shampoo.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Know Your Hair. All rights reserved.</p>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const authBtn = document.getElementById('authBtn');
+      if (typeof isLoggedIn === 'function' && isLoggedIn()) {
+        authBtn.textContent = 'Logout';
+      } else {
+        authBtn.textContent = 'Login';
+      }
+    });
+
+    function handleAuthClick() {
+      if (typeof isLoggedIn === 'function' && isLoggedIn()) {
+        logout();
+      } else {
+        window.location.href = '/login.html';
+      }
+    }
+  </script>
+</body>
+</html>
