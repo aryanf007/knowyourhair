@@ -3,16 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Common Hair Care Mistakes | Know Your Hair</title>
+  <title>Common Hair Care Mistakes | KnowYourHair</title>
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; line-height: 1.6; }
-    nav { background: #2cIt looks like you're continuing a project or building a multi-page application, but I don't have the context or existing code for what you're working on yet!
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: #fff; }
+    .logo { font-size: 1.4rem; font-weight: 800; color: #d63384; text-decoration: none; }
+    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a.active { color: #d63384; font-weight: 700; }
+    .container { max-width: 750px; margin: 3rem auto; }
+    h1 { text-align: center; color: #d63384; margin-bottom: 0.3rem; }
+    .subtitle { text-align: center; color: #777; font-size: 0.9rem; margin-bottom: 2.5rem; }
+    .mistake-card { background: #fff; padding: 1.2rem 1.5rem; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+    .mistake-card h3 { margin: 0 0 0.4rem 0; font-size: 1rem; color: #222; display: flex; align-items: center; gap: 0.5rem; }
+    .mistake-card p { margin: 0; font-size: 0.85rem; color: #666; line-height: 1.5; }
+    .fix { background: #fdf2f8; padding: 0.6rem 1rem; border-radius: 6px; margin-top: 0.6rem; font-size: 0.8rem; color: #d63384; }
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 3rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">KnowYourHair</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/take-test.html">Take Test</a>
+      <a href="/pages/get-routine.html">Get Routine</a>
+      <a href="/pages/scalp-analysis.html">Scalp Analysis</a>
+      <a href="/pages/oils.html">Oils</a>
+      <a href="/pages/ingredients.html">Ingredients</a>
+      <a href="/pages/mistakes.html" class="active">Mistakes</a>
+      <a href="/pages/concerns.html">Concerns</a>
+      <a href="/pages/about.html">About</a>
+    </div>
+  </nav>
 
-To help me build out the rest of your pages smoothly, could you share:
+  <div class="container">
+    <h1>Common Hair Care Mistakes</h1>
+    <p class="subtitle">Avoid these common pitfalls for healthier hair</p>
 
-* **The Tech Stack / Framework:** (e.g., Next.js, React, HTML/CSS, PHP, Node/Express)
-* **What's already built:** (Feel free to paste your existing router setup, components, or layout code)
-* **The missing pages & requirements:** (e.g., `About Us`, `Dashboard`, `Contact`, `Settings`, along with any specific features or visual styles needed)
+    <div class="mistake-card">
+      <h3>⚠️ Using Too Much Oil</h3>
+      <p>Applying excessive amounts of oil can lead to product buildup, greasiness, and clogged pores on the scalp.</p>
+      <div class="fix"><strong>Fix:</strong> Start with small amounts (a few drops) and focus on ends and mid-lengths.</div>
+    </div>
 
-Once you share those details (or drop in your current code), I'll get straight to generating the remaining pages for you!
+    <div class="mistake-card">
+      <h3>💧 Overwashing</h3>
+      <p>Washing your hair too frequently can strip natural oils, leading to scalp dryness and rebound oil production.</p>
+      <div class="fix"><strong>Fix:</strong> Wash based on your scalp type (2-3x/week for normal/oily, 1-2x for dry).</div>
+    </div>
+
+    <div class="mistake-card">
+      <h3>🧴 Applying Conditioner on Scalp</h3>
+      <p>Conditioner directly on the scalp clogs pores and leads to limp, greasy roots.</p>
+      <div class="fix"><strong>Fix:</strong> Apply conditioner from mid-lengths to ends only.</div>
+    </div>
+  </div>
+
+  <footer>© 2026 KnowYourHair. All rights reserved.</footer>
+  <script src="/js/script.js"></script>
+</body>
+</html>

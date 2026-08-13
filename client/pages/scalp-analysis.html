@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scalp Analysis | KnowYourHair</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: #fff; }
+    .logo { font-size: 1.4rem; font-weight: 800; color: #d63384; text-decoration: none; }
+    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a.active { color: #d63384; font-weight: 700; }
+    .container { max-width: 800px; margin: 2rem auto; text-align: center; }
+    .hero-img { width: 220px; border-radius: 16px; margin-bottom: 1rem; }
+    h1 { color: #d63384; font-size: 2rem; margin-bottom: 0.3rem; }
+    .section-card { background: #fff; border-radius: 12px; padding: 1.5rem; text-align: left; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    .normal { border-left: 5px solid #2ea44f; }
+    .dry { border-left: 5px solid #e36209; }
+    .oily { border-left: 5px solid #0969da; }
+    .btn-group { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
+    .btn { padding: 0.6rem 2rem; border-radius: 6px; border: none; color: #fff; font-weight: bold; cursor: pointer; }
+    .btn-normal { background: #2ea44f; }
+    .btn-dry { background: #e36209; }
+    .btn-oily { background: #0969da; }
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">KnowYourHair</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/take-test.html">Take Test</a>
+      <a href="/pages/get-routine.html">Get Routine</a>
+      <a href="/pages/scalp-analysis.html" class="active">Scalp Analysis</a>
+      <a href="/pages/oils.html">Oils</a>
+      <a href="/pages/ingredients.html">Ingredients</a>
+      <a href="/pages/mistakes.html">Mistakes</a>
+      <a href="/pages/concerns.html">Concerns</a>
+      <a href="/pages/about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=400" class="hero-img" alt="Scalp Analysis">
+    <h1>Scalp Analysis</h1>
+    <p style="color:#777; font-size: 0.9rem;">Determine your scalp type with these simple tests</p>
+
+    <div class="section-card normal">
+      <h3 style="color:#2ea44f; margin-top:0;">Normal Scalp</h3>
+      <p style="font-size: 0.85rem; color: #555;">Balanced oil production, no excessive dryness or flakes.</p>
+    </div>
+
+    <div class="section-card dry">
+      <h3 style="color:#e36209; margin-top:0;">Dry Scalp</h3>
+      <p style="font-size: 0.85rem; color: #555;">Itchiness, small white flakes, feels tight after washing.</p>
+    </div>
+
+    <div class="section-card oily">
+      <h3 style="color:#0969da; margin-top:0;">Oily Scalp</h3>
+      <p style="font-size: 0.85rem; color: #555;">Greasy feel within 24 hours of washing, flat roots.</p>
+    </div>
+
+    <h3>What's Your Scalp Type?</h3>
+    <div class="btn-group">
+      <button class="btn btn-normal">Normal</button>
+      <button class="btn btn-dry">Dry</button>
+      <button class="btn btn-oily">Oily</button>
+    </div>
+  </div>
+
+  <footer>© 2026 KnowYourHair. All rights reserved.</footer>
+  <script src="/js/script.js"></script>
+</body>
+</html>
