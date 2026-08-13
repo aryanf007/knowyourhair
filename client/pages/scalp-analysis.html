@@ -6,27 +6,77 @@
   <title>Scalp Analysis | KnowYourHair</title>
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; padding: 0; }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: #fff; }
     .logo { font-size: 1.4rem; font-weight: 800; color: #d63384; text-decoration: none; }
-    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.85rem; font-weight: 500; }
     .nav-links a.active { color: #d63384; font-weight: 700; }
-    .container { max-width: 800px; margin: 2rem auto; text-align: center; }
-    .hero-img { width: 220px; border-radius: 16px; margin-bottom: 1rem; }
-    h1 { color: #d63384; font-size: 2rem; margin-bottom: 0.3rem; }
-    .section-card { background: #fff; border-radius: 12px; padding: 1.5rem; text-align: left; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-    .normal { border-left: 5px solid #2ea44f; }
-    .dry { border-left: 5px solid #e36209; }
-    .oily { border-left: 5px solid #0969da; }
-    .btn-group { display: flex; justify-content: center; gap: 1rem; margin-top: 2rem; }
-    .btn { padding: 0.6rem 2rem; border-radius: 6px; border: none; color: #fff; font-weight: bold; cursor: pointer; }
-    .btn-normal { background: #2ea44f; }
-    .btn-dry { background: #e36209; }
-    .btn-oily { background: #0969da; }
-    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; }
+
+    .container { max-width: 800px; margin: 2rem auto; text-align: center; padding: 0 1rem; }
+    .hero-img { width: 180px; height: 180px; object-fit: cover; border-radius: 16px; margin-bottom: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+    h1 { color: #d63384; font-size: 2rem; margin-bottom: 0.2rem; font-weight: 800; }
+    .subtitle { color: #666; font-size: 0.85rem; margin-bottom: 2.5rem; }
+
+    /* Test Methods Top Header */
+    .methods-grid { display: flex; justify-content: center; gap: 3rem; margin-bottom: 2.5rem; }
+    .method-item { display: flex; flex-direction: column; align-items: center; width: 120px; }
+    .method-item .icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+    .method-item .title { font-size: 0.85rem; font-weight: 700; color: #222; }
+    .method-item .desc { font-size: 0.7rem; color: #888; }
+
+    /* Scalp Category Sections */
+    .scalp-card { border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; text-align: left; }
+    .scalp-card.normal { background: #f0fdf4; border: 1px solid #dcfce7; }
+    .scalp-card.dry { background: #fff7ed; border: 1px solid #ffedd5; }
+    .scalp-card.oily { background: #f0f9ff; border: 1px solid #e0f2fe; }
+
+    .scalp-card h2 { font-size: 1.1rem; margin-top: 0; margin-bottom: 1rem; font-weight: 800; }
+    .scalp-card.normal h2 { color: #16a34a; }
+    .scalp-card.dry h2 { color: #ea580c; }
+    .scalp-card.oily h2 { color: #2563eb; }
+
+    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .card-col h3 { font-size: 0.8rem; margin: 0 0 0.4rem 0; color: #444; font-weight: 700; }
+    .card-col ul { margin: 0; padding-left: 1.2rem; font-size: 0.75rem; color: #666; line-height: 1.6; }
+
+    .care-tips-box { background: rgba(255, 255, 255, 0.7); border-radius: 8px; padding: 0.8rem 1rem; }
+    .care-tips-box strong { display: block; font-size: 0.78rem; margin-bottom: 0.4rem; color: #333; }
+    .care-tips-box ul { margin: 0; padding-left: 1.2rem; font-size: 0.75rem; color: #555; line-height: 1.6; }
+
+    /* Sebum Test Instructions Box */
+    .sebum-box { background: #fff; border-radius: 12px; padding: 1.5rem; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03); margin-bottom: 2.5rem; }
+    .sebum-box h2 { font-size: 1.1rem; color: #9333ea; margin-top: 0; margin-bottom: 0.8rem; }
+    .sebum-box ol { margin: 0 0 1rem 0; padding-left: 1.2rem; font-size: 0.8rem; color: #555; line-height: 1.6; }
+    .sebum-results { background: #faf5ff; border-radius: 8px; padding: 0.8rem 1rem; font-size: 0.75rem; color: #444; }
+    .sebum-results strong { color: #9333ea; display: block; margin-bottom: 0.4rem; }
+    .sebum-results ul { margin: 0; padding-left: 1.2rem; line-height: 1.6; }
+
+    /* Scalp Type Selector */
+    .selector-section { margin-top: 2rem; }
+    .selector-section h3 { font-size: 1.05rem; color: #222; margin-bottom: 1rem; }
+    .scalp-buttons { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+    .btn-type { border: none; padding: 0.6rem 2.2rem; border-radius: 8px; color: white; font-weight: 700; font-size: 0.85rem; cursor: pointer; transition: opacity 0.2s; }
+    .btn-type:hover { opacity: 0.9; }
+    .btn-normal { background: #22c55e; }
+    .btn-dry { background: #f97316; }
+    .btn-oily { background: #3b82f6; }
+
+    /* Selected Scalp Outcome Display Card */
+    .outcome-card { text-align: center; margin-top: 1.5rem; }
+    .outcome-icon { font-size: 2.5rem; margin-bottom: 0.4rem; }
+    .outcome-title { color: #d63384; font-size: 1.4rem; font-weight: 800; margin: 0 0 0.4rem 0; }
+    .outcome-desc { font-size: 0.8rem; color: #666; max-width: 500px; margin: 0 auto 1.5rem auto; }
+    .outcome-tips { background: #fff; border-radius: 12px; padding: 1.2rem 1.5rem; text-align: left; max-width: 580px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .outcome-tips h4 { color: #3b82f6; font-size: 0.9rem; margin-top: 0; margin-bottom: 0.6rem; }
+    .outcome-tips ul { margin: 0; padding-left: 1.2rem; font-size: 0.78rem; color: #555; line-height: 1.8; }
+
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 4rem; }
   </style>
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav>
     <a href="/" class="logo">KnowYourHair</a>
     <div class="nav-links">
@@ -43,34 +93,225 @@
   </nav>
 
   <div class="container">
-    <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=400" class="hero-img" alt="Scalp Analysis">
+    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500" class="hero-img" alt="Scalp Analysis">
     <h1>Scalp Analysis</h1>
-    <p style="color:#777; font-size: 0.9rem;">Determine your scalp type with these simple tests</p>
+    <p class="subtitle">Determine your scalp type with these simple tests</p>
 
-    <div class="section-card normal">
-      <h3 style="color:#2ea44f; margin-top:0;">Normal Scalp</h3>
-      <p style="font-size: 0.85rem; color: #555;">Balanced oil production, no excessive dryness or flakes.</p>
+    <!-- Top Method Cards -->
+    <div class="methods-grid">
+      <div class="method-item">
+        <span class="icon">🔍</span>
+        <span class="title">Visual Cues</span>
+        <span class="desc">Observe your scalp's appearance</span>
+      </div>
+      <div class="method-item">
+        <span class="icon">👆</span>
+        <span class="title">Touch Test</span>
+        <span class="desc">Feel your scalp's texture</span>
+      </div>
+      <div class="method-item">
+        <span class="icon">🧪</span>
+        <span class="title">Sebum Test</span>
+        <span class="desc">Check oil production</span>
+      </div>
     </div>
 
-    <div class="section-card dry">
-      <h3 style="color:#e36209; margin-top:0;">Dry Scalp</h3>
-      <p style="font-size: 0.85rem; color: #555;">Itchiness, small white flakes, feels tight after washing.</p>
+    <!-- Normal Scalp Reference Card -->
+    <div class="scalp-card normal">
+      <h2>Normal Scalp</h2>
+      <div class="card-grid">
+        <div class="card-col">
+          <h3>Visual Cues:</h3>
+          <ul>
+            <li>Balanced appearance</li>
+            <li>No excessive oiliness or dryness</li>
+            <li>Healthy shine overall</li>
+            <li>Minimal flaking</li>
+          </ul>
+        </div>
+        <div class="card-col">
+          <h3>Touch Test:</h3>
+          <ul>
+            <li>Feels smooth and balanced</li>
+            <li>Not overly oily or dry</li>
+            <li>Comfortable to touch</li>
+          </ul>
+        </div>
+      </div>
+      <div class="care-tips-box">
+        <strong>Care Tips:</strong>
+        <ul>
+          <li>Wash 2–3 times per week</li>
+          <li>Use balanced, gentle shampoos</li>
+          <li>Maintain regular routine</li>
+          <li>Look for: Balanced formulas, mild surfactants</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="section-card oily">
-      <h3 style="color:#0969da; margin-top:0;">Oily Scalp</h3>
-      <p style="font-size: 0.85rem; color: #555;">Greasy feel within 24 hours of washing, flat roots.</p>
+    <!-- Dry Scalp Reference Card -->
+    <div class="scalp-card dry">
+      <h2>Dry Scalp</h2>
+      <div class="card-grid">
+        <div class="card-col">
+          <h3>Visual Cues:</h3>
+          <ul>
+            <li>Visible flaking or dandruff</li>
+            <li>Tight, dry appearance</li>
+            <li>May appear red or irritated</li>
+            <li>Small white flakes</li>
+          </ul>
+        </div>
+        <div class="card-col">
+          <h3>Touch Test:</h3>
+          <ul>
+            <li>Feels tight or itchy</li>
+            <li>Lack of moisture when touched</li>
+            <li>May feel rough</li>
+          </ul>
+        </div>
+      </div>
+      <div class="care-tips-box">
+        <strong>Care Tips:</strong>
+        <ul>
+          <li>Wash less frequently (1–2x/week)</li>
+          <li>Use moisturizing, gentle shampoos</li>
+          <li>Pre-oil before washing</li>
+          <li>Look for: Hyaluronic acid, fatty alcohols</li>
+          <li>Avoid harsh sulfates</li>
+        </ul>
+      </div>
     </div>
 
-    <h3>What's Your Scalp Type?</h3>
-    <div class="btn-group">
-      <button class="btn btn-normal">Normal</button>
-      <button class="btn btn-dry">Dry</button>
-      <button class="btn btn-oily">Oily</button>
+    <!-- Oily Scalp Reference Card -->
+    <div class="scalp-card oily">
+      <h2>Oily Scalp</h2>
+      <div class="card-grid">
+        <div class="card-col">
+          <h3>Visual Cues:</h3>
+          <ul>
+            <li>Shiny, greasy appearance</li>
+            <li>Hair gets greasy quickly after washing</li>
+            <li>May have larger, yellowish flakes</li>
+            <li>Clogged pores</li>
+          </ul>
+        </div>
+        <div class="card-col">
+          <h3>Touch Test:</h3>
+          <ul>
+            <li>Feels greasy or oily</li>
+            <li>Oil visible on fingers</li>
+            <li>Slippery to touch</li>
+          </ul>
+        </div>
+      </div>
+      <div class="care-tips-box">
+        <strong>Care Tips:</strong>
+        <ul>
+          <li>Wash 3–4 times per week</li>
+          <li>Use clarifying but non-stripping shampoo</li>
+          <li>Focus on scalp cleansing</li>
+          <li>Look for: Niacinamide, green tea, gentle clarifying agents</li>
+          <li>Avoid heavy oils on scalp</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sebum Test Card -->
+    <div class="sebum-box">
+      <h2>Sebum Test Instructions</h2>
+      <ol>
+        <li>Wash your hair and wait 24 hours.</li>
+        <li>Take a tissue or blotting paper.</li>
+        <li>Gently press it against your scalp (especially crown area).</li>
+        <li>Observe the results.</li>
+      </ol>
+      <div class="sebum-results">
+        <strong>Results:</strong>
+        <ul>
+          <li><strong>No oil:</strong> Dry Scalp</li>
+          <li><strong>Light oil:</strong> Normal Scalp</li>
+          <li><strong>Visible oil:</strong> Oily Scalp</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Interactive Selector Section -->
+    <div class="selector-section">
+      <h3>What's Your Scalp Type?</h3>
+      <div class="scalp-buttons">
+        <button class="btn-type btn-normal" onclick="selectScalp('normal')">Normal</button>
+        <button class="btn-type btn-dry" onclick="selectScalp('dry')">Dry</button>
+        <button class="btn-type btn-oily" onclick="selectScalp('oily')">Oily</button>
+      </div>
+
+      <div id="scalpOutcome"></div>
     </div>
   </div>
 
-  <footer>© 2026 KnowYourHair. All rights reserved.</footer>
-  <script src="/js/script.js"></script>
+  <footer>
+    © 2026 KnowYourHair. All rights reserved.<br>
+    <span style="font-size:0.65rem; color:#ccc;">Learn.Care.Glow</span>
+  </footer>
+
+  <script>
+    const scalpDetails = {
+      normal: {
+        icon: "✨",
+        title: "Normal Scalp",
+        desc: "Your scalp produces a balanced amount of oil. It stays clean and hydrated without feeling greasy or tight.",
+        tips: [
+          "Wash 2–3 times per week with mild shampoo",
+          "Maintain a consistent, balanced routine",
+          "Focus conditioning on the ends rather than the scalp",
+          "Use lightweight products to prevent buildup"
+        ]
+      },
+      dry: {
+        icon: "🌵",
+        title: "Dry Scalp",
+        desc: "Your scalp produces less natural oil, leading to tightness, itchiness, or small white flakes.",
+        tips: [
+          "Wash less frequently (1–2 times per week)",
+          "Use hydrating and sulfate-free shampoos",
+          "Incorporate pre-shampoo oil treatments (like jojoba or argan)",
+          "Avoid hot water when washing hair"
+        ]
+      },
+      oily: {
+        icon: "💧",
+        title: "Oily Scalp",
+        desc: "Your scalp produces excess oil and needs regular, deep cleansing without stripping natural moisture.",
+        tips: [
+          "Wash 3–4 times per week",
+          "Use clarifying but non-stripping shampoos",
+          "Focus on scalp massage and thorough rinsing",
+          "Look for: Niacinamide, green tea, gentle clarifying agents",
+          "Avoid heavy oils on scalp"
+        ]
+      }
+    };
+
+    function selectScalp(type) {
+      const data = scalpDetails[type];
+      const container = document.getElementById('scalpOutcome');
+
+      container.className = 'outcome-card';
+      container.innerHTML = `
+        <div class="outcome-icon">${data.icon}</div>
+        <h3 class="outcome-title">${data.title}</h3>
+        <p class="outcome-desc">${data.desc}</p>
+        <div class="outcome-tips">
+          <h4>Recommended Care:</h4>
+          <ul>
+            ${data.tips.map(tip => `<li>${tip}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+    }
+
+    // Default load oily scalp view as shown in wireframe
+    selectScalp('oily');
+  </script>
 </body>
 </html>

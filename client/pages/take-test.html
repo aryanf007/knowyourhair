@@ -3,27 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Take Test | KnowYourHair</title>
+  <title>Hair Porosity Test | KnowYourHair</title>
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; padding: 0; }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: #fff; }
     .logo { font-size: 1.4rem; font-weight: 800; color: #d63384; text-decoration: none; }
-    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.85rem; font-weight: 500; }
     .nav-links a.active { color: #d63384; font-weight: 700; }
-    .hero { text-align: center; padding: 2rem 1rem; }
-    .hero-img { width: 320px; border-radius: 16px; margin-bottom: 1.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-    .hero h1 { color: #d63384; font-size: 2.2rem; margin: 0 0 0.5rem 0; font-weight: 800; }
-    .hero p { color: #666; font-size: 0.95rem; margin-bottom: 2.5rem; }
-    .test-grid { display: flex; justify-content: center; gap: 3rem; margin-top: 1rem; }
-    .test-card { background: #fff; padding: 1.5rem; border-radius: 16px; width: 200px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
-    .test-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-    .test-card h3 { margin: 0.5rem 0 0.2rem 0; font-size: 1.1rem; color: #222; }
-    .test-card p { font-size: 0.8rem; color: #777; margin: 0; }
-    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 4rem; }
+
+    .container { max-width: 750px; margin: 2rem auto; text-align: center; padding: 0 1rem; }
+    .hero-img { width: 180px; height: 180px; object-fit: cover; border-radius: 16px; margin-bottom: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+    h1 { color: #d63384; font-size: 2rem; margin-bottom: 0.2rem; font-weight: 800; }
+    .subtitle { color: #666; font-size: 0.85rem; margin-bottom: 2rem; }
+
+    /* Test Selector Cards */
+    .test-selector { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+    .test-btn { background: #fff; border: 2px solid transparent; padding: 1rem 2rem; border-radius: 12px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.2s; display: flex; flex-direction: column; align-items: center; width: 160px; }
+    .test-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(214, 51, 132, 0.1); }
+    .test-btn.active { border-color: #d63384; background: #fff5f8; }
+    .test-btn .icon { font-size: 2rem; margin-bottom: 0.4rem; }
+    .test-btn .title { font-weight: 700; font-size: 0.9rem; color: #222; }
+    .test-btn .desc { font-size: 0.7rem; color: #777; margin-top: 0.2rem; }
+
+    /* Dynamic Instruction View Box */
+    .test-details { background: #fff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: left; }
+    .test-details h2 { color: #3b82f6; font-size: 1.2rem; margin-top: 0; text-align: center; }
+    .illustration-box { background: #e0f2fe; border-radius: 12px; width: 180px; height: 100px; margin: 1rem auto; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
+    .illustration-box .water-label { font-size: 0.75rem; color: #0284c7; }
+    .illustration-box .hair-strand { width: 80px; height: 2px; background: #f43f5e; margin-top: 20px; border-radius: 2px; }
+
+    .steps-list { font-size: 0.8rem; color: #555; padding-left: 1.2rem; line-height: 1.6; }
+
+    /* Results Guide Box */
+    .results-box { background: #f0f9ff; border-radius: 8px; padding: 1rem; margin-top: 1.5rem; font-size: 0.75rem; color: #333; }
+    .results-box strong { color: #0284c7; display: block; margin-bottom: 0.4rem; }
+    .results-box ul { margin: 0; padding-left: 1rem; line-height: 1.5; }
+
+    /* Decision Result Buttons */
+    .result-buttons { display: flex; gap: 0.8rem; margin-top: 1.5rem; justify-content: center; }
+    .res-btn { flex: 1; padding: 0.7rem 0.5rem; border: none; border-radius: 8px; color: white; font-weight: bold; font-size: 0.8rem; cursor: pointer; transition: opacity 0.2s; text-align: center; }
+    .res-btn:hover { opacity: 0.9; }
+    .btn-high { background: #ef4444; }
+    .btn-medium { background: #eab308; }
+    .btn-low { background: #22c55e; }
+
+    /* Result View Cards */
+    .porosity-result-card { text-align: center; margin-top: 1rem; }
+    .porosity-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .porosity-title { color: #d63384; font-size: 1.5rem; font-weight: 800; margin: 0 0 0.5rem 0; }
+    .porosity-desc { font-size: 0.85rem; color: #555; max-width: 550px; margin: 0 auto 1.5rem auto; line-height: 1.5; }
+    .tips-card { background: #fff; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: left; max-width: 600px; margin: 0 auto 1.5rem auto; }
+    .tips-card h3 { color: #3b82f6; font-size: 0.95rem; margin-top: 0; margin-bottom: 0.8rem; }
+    .tips-card ul { margin: 0; padding-left: 1.2rem; font-size: 0.8rem; color: #555; line-height: 1.8; }
+    .btn-restart { background: transparent; border: none; color: #555; font-size: 0.8rem; cursor: pointer; text-decoration: underline; margin-top: 1rem; }
+    .btn-restart:hover { color: #d63384; }
+
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 3rem; }
   </style>
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav>
     <a href="/" class="logo">KnowYourHair</a>
     <div class="nav-links">
@@ -39,26 +81,194 @@
     </div>
   </nav>
 
-  <div class="hero">
-    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500" alt="Porosity" class="hero-img">
+  <div class="container">
+    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500" class="hero-img" alt="Porosity Test">
     <h1>Hair Porosity Test</h1>
-    <p>Discover your hair's porosity level with these simple tests</p>
+    <p class="subtitle">Discover your hair's porosity level with these simple tests</p>
 
-    <div class="test-grid">
-      <div class="test-card">
-        <div class="test-icon">💧</div>
-        <h3>Float Test</h3>
-        <p>Test how your hair behaves in water</p>
-      </div>
-      <div class="test-card">
-        <div class="test-icon">💨</div>
-        <h3>Spray Test</h3>
-        <p>Check how your hair absorbs water</p>
-      </div>
+    <!-- Test Selector Buttons -->
+    <div class="test-selector" id="selectorArea">
+      <button class="test-btn active" id="btnFloat" onclick="switchTest('float')">
+        <span class="icon">💧</span>
+        <span class="title">Float Test</span>
+        <span class="desc">Test how your hair behaves in water</span>
+      </button>
+
+      <button class="test-btn" id="btnSpray" onclick="switchTest('spray')">
+        <span class="icon">🚿</span>
+        <span class="title">Spray Test</span>
+        <span class="desc">Check how your hair absorbs water</span>
+      </button>
+    </div>
+
+    <!-- Dynamic Container -->
+    <div id="testContent">
+      <!-- Injected dynamically by JS -->
     </div>
   </div>
 
-  <footer>© 2026 KnowYourHair. All rights reserved.</footer>
-  <script src="/js/script.js"></script>
+  <footer>
+    © 2026 KnowYourHair. All rights reserved.<br>
+    <span style="font-size:0.65rem; color:#ccc;">Learn.Care.Glow</span>
+  </footer>
+
+  <script>
+    let currentTestMode = 'float';
+
+    const tests = {
+      float: {
+        title: "Float Test Instructions",
+        illustration: `
+          <div class="illustration-box">
+            <span class="water-label">Water</span>
+            <div class="hair-strand"></div>
+            <span style="font-size:0.65rem; color:#888; margin-top: 12px;">Hair Strand</span>
+          </div>
+        `,
+        steps: [
+          "Take a clean strand of hair (from your brush or comb)",
+          "Fill a glass with room temperature water",
+          "Place the hair strand gently on the water surface",
+          "Observe what happens for 2–4 minutes"
+        ],
+        results: [
+          "<strong>Sinks quickly:</strong> High Porosity",
+          "<strong>Slowly drifts down:</strong> Medium Porosity",
+          "<strong>Floats for a long time:</strong> Low Porosity"
+        ],
+        buttons: [
+          { label: "Sinks Fast (High)", type: "high" },
+          { label: "Slowly Drifts (Medium)", type: "medium" },
+          { label: "Floats Long (Low)", type: "low" }
+        ]
+      },
+      spray: {
+        title: "Spray Test Instructions",
+        illustration: `
+          <div class="illustration-box">
+            <span class="water-label">Spray Mist 🚿</span>
+            <div style="width:60px; height:12px; background:#f43f5e; margin-top:15px; border-radius:6px; text-align:center; font-size:0.5rem; color:white;">Hair Section</div>
+          </div>
+        `,
+        steps: [
+          "Take a small section of clean, dry hair",
+          "Spray a fine mist of water on the hair",
+          "Observe how quickly the water is absorbed",
+          "Watch the hair's reaction to the water"
+        ],
+        results: [
+          "<strong>Absorbs immediately, looks wet:</strong> High Porosity",
+          "<strong>Absorbs gradually:</strong> Medium Porosity",
+          "<strong>Water beads up, takes time:</strong> Low Porosity"
+        ],
+        buttons: [
+          { label: "Absorbs Fast (High)", type: "high" },
+          { label: "Gradual (Medium)", type: "medium" },
+          { label: "Beads Up (Low)", type: "low" }
+        ]
+      }
+    };
+
+    const resultData = {
+      high: {
+        icon: "💧",
+        title: "High Porosity",
+        desc: "Your hair has open or damaged cuticles, absorbing moisture quickly but losing it just as fast. It needs extra sealing.",
+        tips: [
+          "Use heavier sealing oils like castor, olive, or shea-based",
+          "Focus on protein treatments to strengthen hair",
+          "Seal in moisture with oils and butters after conditioning",
+          "Avoid over-washing which can strip natural oils",
+          "Look for products with both moisture and protein"
+        ]
+      },
+      medium: {
+        icon: "⚖️",
+        title: "Medium Porosity",
+        desc: "Your hair has a balanced cuticle structure. It can absorb and retain moisture well with proper care.",
+        tips: [
+          "Use balanced oils like coconut (light), almond, or sunflower",
+          "Maintain a good moisture-protein balance",
+          "Regular deep conditioning helps maintain health",
+          "You can use a variety of products, just avoid extremes",
+          "Focus on maintaining your current healthy routine"
+        ]
+      },
+      low: {
+        icon: "💧",
+        title: "Low Porosity",
+        desc: "Your hair has tightly closed cuticles, making it harder for moisture to penetrate. It takes longer to get wet and dry.",
+        tips: [
+          "Use lightweight oils like jojoba, grapeseed, or argan",
+          "Apply products to damp hair for better absorption",
+          "Use heat (warm towel or steamer) to help open cuticles",
+          "Avoid heavy oils and butters that can cause buildup",
+          "Look for water-based products and light conditioners"
+        ]
+      }
+    };
+
+    function renderInstructions(testKey) {
+      document.getElementById("selectorArea").style.display = "flex";
+      const data = tests[testKey];
+      const container = document.getElementById("testContent");
+
+      container.className = "test-details";
+      container.innerHTML = `
+        <h2>${data.title}</h2>
+        ${data.illustration}
+        <ol class="steps-list">
+          ${data.steps.map(step => `<li>${step}</li>`).join("")}
+        </ol>
+
+        <div class="results-box">
+          <strong>What to Look For:</strong>
+          <ul>
+            ${data.results.map(res => `<li>${res}</li>`).join("")}
+          </ul>
+        </div>
+
+        <div class="result-buttons">
+          ${data.buttons.map(btn => `
+            <button class="res-btn btn-${btn.type}" onclick="showResult('${btn.type}')">
+              ${btn.label}
+            </button>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function switchTest(type) {
+      currentTestMode = type;
+      document.getElementById("btnFloat").classList.toggle("active", type === "float");
+      document.getElementById("btnSpray").classList.toggle("active", type === "spray");
+      renderInstructions(type);
+    }
+
+    function showResult(type) {
+      document.getElementById("selectorArea").style.display = "none";
+      const res = resultData[type];
+      const container = document.getElementById("testContent");
+
+      container.className = "porosity-result-card";
+      container.innerHTML = `
+        <div class="porosity-icon">${res.icon}</div>
+        <h2 class="porosity-title">${res.title}</h2>
+        <p class="porosity-desc">${res.desc}</p>
+
+        <div class="tips-card">
+          <h3>Basic Care Tips:</h3>
+          <ul>
+            ${res.tips.map(tip => `<li>${tip}</li>`).join("")}
+          </ul>
+        </div>
+
+        <button class="btn-restart" onclick="renderInstructions(currentTestMode)">Take Another Test</button>
+      `;
+    }
+
+    // Initialize with default Float test
+    renderInstructions('float');
+  </script>
 </body>
 </html>

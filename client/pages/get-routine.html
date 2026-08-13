@@ -3,28 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Get Routine | KnowYourHair</title>
+  <title>Get Your Personalized Routine | KnowYourHair</title>
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; padding: 0; }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: #fff; }
     .logo { font-size: 1.4rem; font-weight: 800; color: #d63384; text-decoration: none; }
-    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.85rem; font-weight: 500; }
     .nav-links a.active { color: #d63384; font-weight: 700; }
-    .container { max-width: 600px; margin: 2rem auto; text-align: center; }
-    .hero-img { width: 260px; border-radius: 16px; margin-bottom: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-    h1 { color: #d63384; font-size: 2rem; margin-bottom: 0.3rem; font-weight: 800; }
-    .subtitle { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
-    .form-card { background: #fff; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: left; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-    label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.3rem; color: #444; }
-    input, select, textarea { width: 100%; padding: 0.6rem; border: 1px solid #e1e1e1; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box; }
-    .btn-submit { background: #d63384; color: white; border: none; padding: 0.8rem; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 1rem; }
-    .btn-submit:hover { background: #b8256f; }
-    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 3rem; }
+
+    .container { max-width: 700px; margin: 2rem auto; text-align: center; padding: 0 1rem; }
+    .hero-img { width: 180px; height: 180px; object-fit: cover; border-radius: 16px; margin-bottom: 1rem; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+    h1 { color: #d63384; font-size: 2rem; margin-bottom: 0.2rem; font-weight: 800; }
+    .subtitle { color: #666; font-size: 0.85rem; margin-bottom: 2.5rem; }
+
+    /* Form Layout */
+    .routine-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 2rem; text-align: left; max-width: 580px; margin: 0 auto; }
+    .form-group { display: flex; flex-direction: column; }
+    .form-group.full-width { grid-column: span 2; }
+    
+    label { font-size: 0.75rem; font-weight: 700; color: #333; margin-bottom: 0.4rem; }
+    input, select, textarea { 
+      padding: 0.6rem 0.8rem; 
+      border: 1px solid #e2e8f0; 
+      border-radius: 8px; 
+      font-size: 0.8rem; 
+      background: #fff; 
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus, textarea:focus { border-color: #d63384; }
+    
+    .hint-text { font-size: 0.68rem; color: #888; margin-top: 0.3rem; }
+    .hint-text a { color: #d63384; text-decoration: underline; }
+
+    .btn-submit { 
+      grid-column: span 2; 
+      justify-self: center; 
+      margin-top: 1.5rem; 
+      padding: 0.7rem 2rem; 
+      background: #d63384; 
+      color: #fff; 
+      border: none; 
+      border-radius: 20px; 
+      font-weight: 700; 
+      font-size: 0.85rem; 
+      cursor: pointer; 
+      box-shadow: 0 4px 12px rgba(214, 51, 132, 0.2); 
+      transition: transform 0.2s, background-color 0.2s;
+    }
+    .btn-submit:hover { background: #c22575; transform: translateY(-1px); }
+
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 4rem; }
   </style>
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav>
     <a href="/" class="logo">KnowYourHair</a>
     <div class="nav-links">
@@ -41,54 +77,82 @@
   </nav>
 
   <div class="container">
-    <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=400" class="hero-img" alt="Products">
+    <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=500" class="hero-img" alt="Hair Products">
     <h1>Get Your Personalized Routine</h1>
     <p class="subtitle">Fill out the form below to receive your custom hair care routine</p>
 
-    <div class="form-card">
-      <form id="routineForm">
-        <div class="form-grid">
-          <div>
-            <label>Name *</label>
-            <input type="text" placeholder="Enter your name" required>
-          </div>
-          <div>
-            <label>Scalp Type *</label>
-            <select required>
-              <option value="">Select your scalp type</option>
-              <option value="normal">Normal</option>
-              <option value="dry">Dry</option>
-              <option value="oily">Oily</option>
-            </select>
-          </div>
-          <div>
-            <label>Hair Porosity *</label>
-            <select required>
-              <option value="">Select your hair porosity</option>
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-          </div>
-          <div>
-            <label>Hair Length (Optional)</label>
-            <select>
-              <option value="">Select hair length</option>
-              <option value="short">Short</option>
-              <option value="medium">Medium</option>
-              <option value="long">Long</option>
-            </select>
-          </div>
-        </div>
-        <label>Hair Concerns (Optional)</label>
-        <textarea rows="3" placeholder="e.g., frizz, dryness, breakage, dandruff..."></textarea>
-        
-        <button type="submit" class="btn-submit">Generate My Routine</button>
-      </form>
-    </div>
+    <!-- Routine Request Form -->
+    <form class="routine-form" onsubmit="handleRoutineSubmit(event)">
+      <div class="form-group">
+        <label for="name">Name *</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="scalpType">Scalp Type *</label>
+        <select id="scalpType" required>
+          <option value="" disabled selected>Select your scalp type</option>
+          <option value="oily">Oily</option>
+          <option value="dry">Dry</option>
+          <option value="normal">Normal</option>
+          <option value="sensitive">Sensitive</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="porosity">Hair Porosity *</label>
+        <select id="porosity" required>
+          <option value="" disabled selected>Select your hair porosity</option>
+          <option value="low">Low Porosity</option>
+          <option value="medium">Medium Porosity</option>
+          <option value="high">High Porosity</option>
+        </select>
+        <span class="hint-text">Not sure? <a href="/pages/take-test.html">Take the porosity test</a></span>
+      </div>
+
+      <div class="form-group">
+        <label for="length">Hair Length (Optional)</label>
+        <select id="length">
+          <option value="" disabled selected>Select hair length</option>
+          <option value="short">Short</option>
+          <option value="medium">Medium</option>
+          <option value="long">Long</option>
+        </select>
+      </div>
+
+      <div class="form-group full-width">
+        <label for="concerns">Hair Concerns (Optional)</label>
+        <textarea id="concerns" rows="3" placeholder="e.g., frizz, dryness, breakage, dandruff..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">Generate My Routine</button>
+    </form>
   </div>
 
-  <footer>© 2026 KnowYourHair. All rights reserved.</footer>
-  <script src="/js/script.js"></script>
+  <footer>
+    © 2026 KnowYourHair. All rights reserved.<br>
+    <span style="font-size: 0.65rem; color: #ccc;">Learn.Care.Glow</span>
+  </footer>
+
+  <script>
+    // Pre-fill porosity from URL parameter if redirected from test page
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const urlPorosity = params.get('porosity');
+      const savedPorosity = localStorage.getItem('userPorosity');
+
+      const porositySelect = document.getElementById('porosity');
+      if (urlPorosity) {
+        porositySelect.value = urlPorosity;
+      } else if (savedPorosity) {
+        porositySelect.value = savedPorosity;
+      }
+    });
+
+    function handleRoutineSubmit(e) {
+      e.preventDefault();
+      alert("Routine generated! Custom routine feature integration in progress.");
+    }
+  </script>
 </body>
 </html>

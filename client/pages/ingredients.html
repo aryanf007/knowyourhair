@@ -6,24 +6,77 @@
   <title>Shampoo Ingredients Guide | KnowYourHair</title>
   <link rel="stylesheet" href="/css/style.css">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; }
+    * { box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; padding: 0; }
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: #fff; }
     .logo { font-size: 1.4rem; font-weight: 800; color: #d63384; text-decoration: none; }
-    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.85rem; font-weight: 500; }
     .nav-links a.active { color: #d63384; font-weight: 700; }
-    .container { max-width: 800px; margin: 2rem auto; text-align: center; }
-    h1 { color: #d63384; font-size: 2rem; margin-bottom: 0.3rem; font-weight: 800; }
-    .subtitle { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
-    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; text-align: left; }
-    .card { background: #fff; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-    .card h3 { margin-top: 0; font-size: 1.1rem; }
-    .look-for { color: #2ea44f; font-weight: bold; font-size: 0.85rem; margin-top: 0.8rem; }
-    .avoid { color: #cb2431; font-weight: bold; font-size: 0.85rem; margin-top: 0.8rem; }
-    ul { margin: 0.3rem 0; padding-left: 1.2rem; font-size: 0.8rem; color: #555; }
-    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 3rem; }
+
+    .container { max-width: 800px; margin: 2rem auto; text-align: center; padding: 0 1rem; }
+    h1 { color: #d63384; font-size: 2rem; margin-bottom: 0.2rem; font-weight: 800; }
+    .subtitle { color: #666; font-size: 0.85rem; margin-bottom: 2rem; }
+
+    /* 2x2 Hero Image Grid */
+    .hero-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 0.8rem; 
+      max-width: 380px; 
+      margin: 0 auto 2.5rem auto; 
+    }
+    .hero-grid img { 
+      width: 100%; 
+      height: 110px; 
+      object-fit: cover; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06); 
+    }
+
+    /* Section Subheadings */
+    .section-title { font-size: 1.2rem; font-weight: 800; color: #222; margin: 2rem 0 1.2rem 0; text-align: center; }
+
+    /* Card Box Styles */
+    .info-card { 
+      background: #fff; 
+      border-radius: 12px; 
+      padding: 1.2rem 1.5rem; 
+      margin-bottom: 1.5rem; 
+      text-align: left; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02); 
+    }
+    .info-card h3 { font-size: 1rem; font-weight: 800; margin-top: 0; margin-bottom: 0.8rem; }
+    .low-title { color: #0284c7; }
+    .medium-title { color: #9333ea; }
+    .high-title { color: #2563eb; }
+    .oily-title { color: #2563eb; }
+    .dry-title { color: #ea580c; }
+
+    /* Two-Column Content Grid Inside Cards */
+    .two-col-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .col h4 { font-size: 0.78rem; font-weight: 700; margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.3rem; }
+    .col.look h4 { color: #16a34a; }
+    .col.avoid h4 { color: #dc2626; }
+    .col.tips h4 { color: #d97706; }
+
+    .col ul { margin: 0; padding-left: 1.2rem; font-size: 0.73rem; color: #555; line-height: 1.6; }
+
+    /* Bottom Reading Labels Card */
+    .reading-card { 
+      background: #f0f4ff; 
+      border-radius: 12px; 
+      padding: 1.5rem; 
+      text-align: left; 
+      margin-top: 2.5rem; 
+    }
+    .reading-card h2 { font-size: 1.05rem; color: #1e3a8a; margin-top: 0; margin-bottom: 1rem; font-weight: 800; }
+
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 4rem; }
   </style>
 </head>
 <body>
+
+  <!-- Navigation -->
   <nav>
     <a href="/" class="logo">KnowYourHair</a>
     <div class="nav-links">
@@ -41,42 +94,184 @@
 
   <div class="container">
     <h1>Shampoo Ingredients Guide</h1>
-    <p class="subtitle">Know what ingredients work best for your hair type</p>
+    <p class="subtitle">Learn what ingredients work best for your hair type</p>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Oily Scalp</h3>
-        <div class="look-for">✓ Look For:</div>
-        <ul>
-          <li>Salicylic Acid / Tea Tree Oil</li>
-          <li>Clarifying surfactants</li>
-          <li>Lightweight formulas</li>
-        </ul>
-        <div class="avoid">✕ Avoid:</div>
-        <ul>
-          <li>Heavy silicones and oils</li>
-          <li>Extremely drying sulfates</li>
-        </ul>
+    <!-- 2x2 Image Grid -->
+    <div class="hero-grid">
+      <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=300" alt="Aloe and Herbs">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=300" alt="Shampoo Bottles">
+      <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300" alt="Cosmetic Skincare Bottles">
+      <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=300" alt="Haircare Product Assortment">
+    </div>
+
+    <!-- Section 1: By Hair Porosity -->
+    <h2 class="section-title">By Hair Porosity</h2>
+
+    <!-- Low Porosity Card -->
+    <div class="info-card">
+      <h3 class="low-title">Low Porosity</h3>
+      <div class="two-col-grid">
+        <div class="col look">
+          <h4>✅ Look For:</h4>
+          <ul>
+            <li>Lightweight conditioners</li>
+            <li>Gentle surfactants (cocamidopropyl betaine)</li>
+            <li>Water-based products</li>
+            <li>Humectants (glycerin, aloe)</li>
+            <li>Heat-activated ingredients</li>
+          </ul>
+        </div>
+        <div class="col avoid">
+          <h4>❌ Avoid:</h4>
+          <ul>
+            <li>Heavy silicones (dimethicone, amodimethicone)</li>
+            <li>Heavy butters and oils</li>
+            <li>Protein-heavy formulas</li>
+            <li>Thick, creamy conditioners</li>
+          </ul>
+        </div>
       </div>
+    </div>
 
-      <div class="card">
-        <h3>Dry Scalp</h3>
-        <div class="look-for">✓ Look For:</div>
-        <ul>
-          <li>Glycerin / Aloe Vera</li>
-          <li>Gentle sulfate-free formulas</li>
-          <li>Soothing botanicals</li>
-        </ul>
-        <div class="avoid">✕ Avoid:</div>
-        <ul>
-          <li>Harsh sulfates</li>
-          <li>Drying alcohols (isopropyl alcohol)</li>
-        </ul>
+    <!-- Medium Porosity Card -->
+    <div class="info-card">
+      <h3 class="medium-title">Medium Porosity</h3>
+      <div class="two-col-grid">
+        <div class="col look">
+          <h4>✅ Look For:</h4>
+          <ul>
+            <li>Balanced humectants</li>
+            <li>Light proteins (hydrolyzed wheat protein)</li>
+            <li>Moisture-protein balance</li>
+            <li>Versatile formulas</li>
+            <li>Moderate conditioning agents</li>
+          </ul>
+        </div>
+        <div class="col tips">
+          <h4>💡 Tips:</h4>
+          <ul>
+            <li>You can use a variety of products</li>
+            <li>Focus on maintaining balance</li>
+            <li>Alternate between protein and moisture</li>
+            <li>Avoid extremes in either direction</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- High Porosity Card -->
+    <div class="info-card">
+      <h3 class="high-title">High Porosity</h3>
+      <div class="two-col-grid">
+        <div class="col look">
+          <h4>✅ Look For:</h4>
+          <ul>
+            <li>Moisture + protein combination</li>
+            <li>Sealing ingredients (oils, butters)</li>
+            <li>Gentle but effective surfactants</li>
+            <li>Deep conditioning agents</li>
+            <li>Strengthening proteins</li>
+          </ul>
+        </div>
+        <div class="col tips">
+          <h4>💡 Tips:</h4>
+          <ul>
+            <li>Focus on both moisture and protein</li>
+            <li>Seal in moisture after washing</li>
+            <li>Use strengthening treatments regularly</li>
+            <li>Avoid over-washing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: By Scalp Type -->
+    <h2 class="section-title">By Scalp Type</h2>
+
+    <!-- Oily Scalp Card -->
+    <div class="info-card">
+      <h3 class="oily-title">Oily Scalp</h3>
+      <div class="two-col-grid">
+        <div class="col look">
+          <h4>✅ Look For:</h4>
+          <ul>
+            <li>Clarifying but non-stripping surfactants</li>
+            <li>Niacinamide</li>
+            <li>Green tea extract</li>
+            <li>Salicylic acid (gentle)</li>
+            <li>Tea tree oil</li>
+            <li>Lightweight formulas</li>
+          </ul>
+        </div>
+        <div class="col avoid">
+          <h4>❌ Avoid:</h4>
+          <ul>
+            <li>Co-washes/no-shampoo</li>
+            <li>Overly moisturizing formulas</li>
+            <li>Harsh sulfates (can cause rebound oiliness)</li>
+            <li>Heavy conditioners on scalp</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dry Scalp Card -->
+    <div class="info-card">
+      <h3 class="dry-title">Dry Scalp</h3>
+      <div class="two-col-grid">
+        <div class="col look">
+          <h4>✅ Look For:</h4>
+          <ul>
+            <li>Aloe vera</li>
+            <li>Hyaluronic acid</li>
+            <li>Fatty alcohols (cetyl, stearyl)</li>
+            <li>Gentle, moisturizing surfactants</li>
+            <li>Soothing ingredients (chamomile, calendula)</li>
+            <li>Light oils (jojoba, argan)</li>
+          </ul>
+        </div>
+        <div class="col avoid">
+          <h4>❌ Avoid:</h4>
+          <ul>
+            <li>Harsh sulfates</li>
+            <li>Drying alcohols (ethanol, isopropyl)</li>
+            <li>Over-clarifying formulas</li>
+            <li>Fragrance-heavy products</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3: Reading Ingredient Labels -->
+    <div class="reading-card">
+      <h2>Reading Ingredient Labels</h2>
+      <div class="two-col-grid">
+        <div class="col">
+          <h4 style="color:#1e40af;">Key Points:</h4>
+          <ul>
+            <li>Ingredients are listed by concentration (highest first)</li>
+            <li>First 5 ingredients are most important</li>
+            <li>Look for natural vs. synthetic options</li>
+            <li>Avoid known irritants if you have sensitive skin</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4 style="color:#1e40af;">Common Ingredients:</h4>
+          <ul>
+            <li><strong>Surfactants:</strong> Clean hair (SLS, cocamidopropyl betaine)</li>
+            <li><strong>Humectants:</strong> Attract moisture (glycerin, hyaluronic acid)</li>
+            <li><strong>Emollients:</strong> Soften hair (oils, butters)</li>
+            <li><strong>Proteins:</strong> Strengthen hair (keratin, wheat protein)</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 
-  <footer>© 2026 KnowYourHair. All rights reserved.</footer>
-  <script src="/js/script.js"></script>
+  <footer>
+    © 2026 KnowYourHair. All rights reserved.<br>
+    <span style="font-size: 0.65rem; color: #ccc;">Learn.Care.Glow</span>
+  </footer>
+
 </body>
 </html>
