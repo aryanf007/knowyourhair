@@ -2,23 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Take Test - Know Your Hair</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About KnowYourHair</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: #fff; }
+    .logo { font-size: 1.4rem; font-weight: 800; color: #d63384; text-decoration: none; }
+    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a.active { color: #d63384; font-weight: 700; }
+    .container { max-width: 650px; margin: 3rem auto; text-align: center; }
+    h1 { color: #d63384; font-size: 2.2rem; margin-bottom: 0.2rem; font-weight: 800; }
+    .tagline { color: #d63384; font-size: 0.85rem; letter-spacing: 1px; font-weight: bold; margin-bottom: 2rem; }
+    .content-box { background: #fff; padding: 2rem; border-radius: 16px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03); line-height: 1.6; }
+    h3 { color: #222; margin-top: 1.2rem; margin-bottom: 0.5rem; }
+    p { font-size: 0.85rem; color: #666; margin-top: 0; }
+    .disclaimer { background: #fff8dc; border: 1px solid #ffeeba; padding: 1rem; border-radius: 8px; margin-top: 1.5rem; font-size: 0.8rem; color: #856404; }
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 3rem; }
+  </style>
 </head>
 <body>
+  <nav>
+    <a href="/" class="logo">KnowYourHair</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/take-test.html">Take Test</a>
+      <a href="/pages/get-routine.html">Get Routine</a>
+      <a href="/pages/scalp-analysis.html">Scalp Analysis</a>
+      <a href="/pages/oils.html">Oils</a>
+      <a href="/pages/ingredients.html">Ingredients</a>
+      <a href="/pages/mistakes.html">Mistakes</a>
+      <a href="/pages/concerns.html">Concerns</a>
+      <a href="/pages/about.html" class="active">About</a>
+    </div>
+  </nav>
 
-  <!-- Your test / quiz form content here -->
+  <div class="container">
+    <h1>About KnowYourHair</h1>
+    <div class="tagline">LEARN.CARE.GLOW</div>
 
-  <!-- PASTE API SCRIPT HERE -->
-  <script src="/js/api.js"></script>
-  
-  <script>
-    // Page-specific script to handle the quiz / button clicks
-    async function handleTestSubmit(porosityValue) {
-      if (isLoggedIn()) {
-        await saveTestResult(porosityValue);
-      }
-      window.location.href = '/pages/get-routine.html';
-    }
-  </script>
+    <div class="content-box">
+      <h3>Our Mission</h3>
+      <p>KnowYourHair is dedicated to helping you discover your hair's unique needs and embrace natural care for healthy, beautiful hair. We believe that understanding your hair's porosity, scalp type, and specific concerns is the first step toward a personalized care routine that works.</p>
+
+      <h3>What We Offer</h3>
+      <p>• <strong>Hair Porosity Tests:</strong> Simple tests to determine your hair's porosity level.<br>
+      • <strong>Scalp Analysis:</strong> Guidance to identify your scalp type.<br>
+      • <strong>Personalized Routines:</strong> AI-generated hair care routines tailored to your specific needs.</p>
+
+      <div class="disclaimer">
+        <strong>Important Disclaimer:</strong> We are not dermatologists. This website provides general information and educational content about hair care. For serious scalp or hair issues, please consult a qualified healthcare professional.
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2026 KnowYourHair. All rights reserved.</footer>
+  <script src="/js/script.js"></script>
 </body>
 </html>

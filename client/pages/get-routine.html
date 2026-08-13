@@ -1,56 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Personalized Routine</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Routine | KnowYourHair</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: #fff; }
+    .logo { font-size: 1.4rem; font-weight: 800; color: #d63384; text-decoration: none; }
+    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a.active { color: #d63384; font-weight: 700; }
+    .container { max-width: 600px; margin: 2rem auto; text-align: center; }
+    .hero-img { width: 260px; border-radius: 16px; margin-bottom: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+    h1 { color: #d63384; font-size: 2rem; margin-bottom: 0.3rem; font-weight: 800; }
+    .subtitle { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
+    .form-card { background: #fff; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); text-align: left; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.3rem; color: #444; }
+    input, select, textarea { width: 100%; padding: 0.6rem; border: 1px solid #e1e1e1; border-radius: 6px; font-size: 0.85rem; box-sizing: border-box; }
+    .btn-submit { background: #d63384; color: white; border: none; padding: 0.8rem; width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 1rem; }
+    .btn-submit:hover { background: #b8256f; }
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 3rem; }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="oils.html">Oils Guide</a>
-            <a href="get-routine.html" class="active">Get Routine</a>
-            <button id="auth-btn">Login / Sign Up</button>
-        </nav>
-    </header>
+  <nav>
+    <a href="/" class="logo">KnowYourHair</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/take-test.html">Take Test</a>
+      <a href="/pages/get-routine.html" class="active">Get Routine</a>
+      <a href="/pages/scalp-analysis.html">Scalp Analysis</a>
+      <a href="/pages/oils.html">Oils</a>
+      <a href="/pages/ingredients.html">Ingredients</a>
+      <a href="/pages/mistakes.html">Mistakes</a>
+      <a href="/pages/concerns.html">Concerns</a>
+      <a href="/pages/about.html">About</a>
+    </div>
+  </nav>
 
-    <main class="container">
-        <h1>Custom Routine Generator</h1>
-        <p>Select your preferences below to build a tailored daily regimen.</p>
+  <div class="container">
+    <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=400" class="hero-img" alt="Products">
+    <h1>Get Your Personalized Routine</h1>
+    <p class="subtitle">Fill out the form below to receive your custom hair care routine</p>
 
-        <form id="routine-form">
-            <div class="form-group">
-                <label for="hair-type">Select Hair / Skin Type:</label>
-                <select id="hair-type" name="hairType" required>
-                    <option value="" disabled selected>Choose an option</option>
-                    <option value="dry">Dry / High Porosity</option>
-                    <option value="oily">Oily / Low Porosity</option>
-                    <option value="combination">Combination / Normal</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="primary-goal">Primary Goal:</label>
-                <select id="primary-goal" name="primaryGoal" required>
-                    <option value="" disabled selected>Choose a goal</option>
-                    <option value="growth">Hair Growth & Strength</option>
-                    <option value="moisture">Deep Moisture & Shine</option>
-                    <option value="scalp-health">Scalp Care & Nourishment</option>
-                </select>
-            </div>
-
-            <button type="submit" class="btn-primary">Generate Routine</button>
-        </form>
-
-        <div id="routine-results" class="results-card" style="display: none;">
-            <h2>Your Recommended Plan</h2>
-            <div id="routine-details"></div>
+    <div class="form-card">
+      <form id="routineForm">
+        <div class="form-grid">
+          <div>
+            <label>Name *</label>
+            <input type="text" placeholder="Enter your name" required>
+          </div>
+          <div>
+            <label>Scalp Type *</label>
+            <select required>
+              <option value="">Select your scalp type</option>
+              <option value="normal">Normal</option>
+              <option value="dry">Dry</option>
+              <option value="oily">Oily</option>
+            </select>
+          </div>
+          <div>
+            <label>Hair Porosity *</label>
+            <select required>
+              <option value="">Select your hair porosity</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          <div>
+            <label>Hair Length (Optional)</label>
+            <select>
+              <option value="">Select hair length</option>
+              <option value="short">Short</option>
+              <option value="medium">Medium</option>
+              <option value="long">Long</option>
+            </select>
+          </div>
         </div>
-    </main>
+        <label>Hair Concerns (Optional)</label>
+        <textarea rows="3" placeholder="e.g., frizz, dryness, breakage, dandruff..."></textarea>
+        
+        <button type="submit" class="btn-submit">Generate My Routine</button>
+      </form>
+    </div>
+  </div>
 
-    <script src="auth.js"></script>
-    <script src="routine.js"></script>
+  <footer>© 2026 KnowYourHair. All rights reserved.</footer>
+  <script src="/js/script.js"></script>
 </body>
 </html>

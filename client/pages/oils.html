@@ -1,46 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Essential & Carrier Oils Guide</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hair Oils Guide | KnowYourHair</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #faf8ff; color: #333; margin: 0; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 4rem; background: #fff; }
+    .logo { font-size: 1.4rem; font-weight: 800; color: #d63384; text-decoration: none; }
+    .nav-links a { margin-left: 1.2rem; text-decoration: none; color: #555; font-size: 0.9rem; font-weight: 500; }
+    .nav-links a.active { color: #d63384; font-weight: 700; }
+    .container { max-width: 800px; margin: 2rem auto; text-align: center; }
+    h1 { color: #d63384; font-size: 2rem; margin-bottom: 0.3rem; font-weight: 800; }
+    .subtitle { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
+    .porosity-section { text-align: left; background: #fff; padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    .porosity-section h3 { margin-top: 0; color: #d63384; display: flex; align-items: center; gap: 0.5rem; }
+    .oil-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem; }
+    .oil-card { background: #faf8ff; padding: 1rem; border-radius: 8px; border: 1px solid #f0e6ff; text-align: center; }
+    .oil-card h4 { margin: 0 0 0.3rem 0; font-size: 0.95rem; }
+    .oil-card p { margin: 0; font-size: 0.75rem; color: #666; }
+    footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: #aaa; margin-top: 3rem; }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="oils.html" class="active">Oils Guide</a>
-            <a href="get-routine.html">Get Routine</a>
-            <button id="auth-btn">Login / Sign Up</button>
-        </nav>
-    </header>
+  <nav>
+    <a href="/" class="logo">KnowYourHair</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/pages/take-test.html">Take Test</a>
+      <a href="/pages/get-routine.html">Get Routine</a>
+      <a href="/pages/scalp-analysis.html">Scalp Analysis</a>
+      <a href="/pages/oils.html" class="active">Oils</a>
+      <a href="/pages/ingredients.html">Ingredients</a>
+      <a href="/pages/mistakes.html">Mistakes</a>
+      <a href="/pages/concerns.html">Concerns</a>
+      <a href="/pages/about.html">About</a>
+    </div>
+  </nav>
 
-    <main class="container">
-        <h1>Oils Directory</h1>
-        <p>Explore beneficial oils, their properties, and ideal usage methods.</p>
+  <div class="container">
+    <h1>Hair Oils Guide</h1>
+    <p class="subtitle">Find the perfect oils for your hair porosity type</p>
 
-        <div class="grid-container">
-            <div class="card">
-                <h3>Argan Oil</h3>
-                <span class="badge">Carrier Oil</span>
-                <p>Rich in Vitamin E and fatty acids. Great for taming frizz and sealing in moisture.</p>
-            </div>
+    <div class="porosity-section">
+      <h3>🌊 Low Porosity</h3>
+      <p style="font-size:0.85rem; color:#666;">Requires lightweight oils that won't sit on the surface.</p>
+      <div class="oil-cards">
+        <div class="oil-card"><h4>Jojoba Oil</h4><p>Lightweight, mimics natural sebum</p></div>
+        <div class="oil-card"><h4>Grapeseed Oil</h4><p>Very light, non-greasy</p></div>
+        <div class="oil-card"><h4>Argan Oil</h4><p>Lightweight, rich in vitamins</p></div>
+      </div>
+    </div>
 
-            <div class="card">
-                <h3>Rosemary Oil</h3>
-                <span class="badge">Essential Oil</span>
-                <p>Known for stimulating scalp circulation and supporting hair follicle health.</p>
-            </div>
+    <div class="porosity-section">
+      <h3>⚖️ Medium Porosity</h3>
+      <p style="font-size:0.85rem; color:#666;">Balanced hair can handle a variety of oils.</p>
+      <div class="oil-cards">
+        <div class="oil-card"><h4>Sweet Almond Oil</h4><p>Balanced, good moisture retention</p></div>
+        <div class="oil-card"><h4>Avocado Oil</h4><p>Nourishing, medium weight</p></div>
+        <div class="oil-card"><h4>Sunflower Oil</h4><p>Lightweight, versatile</p></div>
+      </div>
+    </div>
 
-            <div class="card">
-                <h3>Jojoba Oil</h3>
-                <span class="badge">Carrier Oil</span>
-                <p>Closely mimics natural sebum; ideal for balanced scalp hydration without clogging pores.</p>
-            </div>
-        </div>
-    </main>
+    <div class="porosity-section">
+      <h3>💧 High Porosity</h3>
+      <p style="font-size:0.85rem; color:#666;">Needs heavier sealing oils to lock in moisture.</p>
+      <div class="oil-cards">
+        <div class="oil-card"><h4>Castor Oil</h4><p>Heavy, excellent for sealing</p></div>
+        <div class="oil-card"><h4>Olive Oil</h4><p>Rich, deeply moisturizing</p></div>
+        <div class="oil-card"><h4>Shea Butter / Oil</h4><p>Heavy barrier, great for sealing</p></div>
+      </div>
+    </div>
+  </div>
 
-    <script src="auth.js"></script>
+  <footer>© 2026 KnowYourHair. All rights reserved.</footer>
+  <script src="/js/script.js"></script>
 </body>
 </html>
