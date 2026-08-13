@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Take Test - Know Your Hair</title>
+</head>
+<body>
+
+  <!-- Your test / quiz form content here -->
+
+  <!-- PASTE API SCRIPT HERE -->
+  <script src="/js/api.js"></script>
+  
+  <script>
+    // Page-specific script to handle the quiz / button clicks
+    async function handleTestSubmit(porosityValue) {
+      if (isLoggedIn()) {
+        await saveTestResult(porosityValue);
+      }
+      window.location.href = '/pages/get-routine.html';
+    }
+  </script>
+</body>
+</html>
